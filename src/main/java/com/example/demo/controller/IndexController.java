@@ -14,14 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/index")
 public class IndexController {
     @RequestMapping("/hello")
-    public String hello(){
-        System.out.println("返回数据"+">>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    public String hello() {
+        System.out.println("返回数据" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>");
         return "你好，世界。";
-    }
-
-    @RequestMapping("")
-    public String index(){
-        System.out.println("返回页面"+">>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        return "/index";
     }
 }
