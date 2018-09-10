@@ -22,8 +22,10 @@ public class LogController {
         int age = 18;
 
         //日志级别从低到高分为：TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+        log.trace("This is trace ...");
         log.debug("This is debugging ...");
         log.info("This is info...");
+        log.warn("This is warning...");
         log.error("This is error...");
 
         //可以使用{} 占位符来拼接字符串，而不需要使用 + 来连接字符串

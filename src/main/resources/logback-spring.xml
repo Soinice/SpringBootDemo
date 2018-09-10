@@ -92,4 +92,13 @@
         <appender-ref ref="infoLogFile"/>
         <appender-ref ref="errorLogFile"/>
     </root>
+
+    <!--设置某一个包或者具体到某一个类的日志打印-->
+    <logger name="com.example.demo.controller.LogController" level="WARN" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+
+    <logger name="com.example.demo.controller"/>
+
+    <logger name="com.example.demo"/>
 </configuration>
