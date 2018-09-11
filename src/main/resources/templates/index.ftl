@@ -3,9 +3,7 @@
 
 <head class="ui semantic">
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <!-- //<meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-    <title>baidu</title>
+    <title>百度一下，你就知道</title>
     <link href="http://ox6yf62u0.bkt.clouddn.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
     <script src="http://ox6yf62u0.bkt.clouddn.com/jquery-2.1.4.min.js"></script>
     <script src="http://ox6yf62u0.bkt.clouddn.com/semantic-ui/2.2.13/semantic.min.js"></script>
@@ -70,7 +68,7 @@
     <div class="row">
         <form class="column" style="width:640px;" method="GET" action="https://www.baidu.com/s" name="search">
             <div class="ui fluid  input action">
-                <input type="text" name="wd" placeholder="搜索...">
+                <input type="text" name="wd" placeholder="${search}">
                 <button class="medium ui blue button" onclick="document.forms['search'].submit();">百度一下</button>
             </div>
         </form>

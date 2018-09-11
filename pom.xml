@@ -56,16 +56,22 @@
 			<scope>true</scope>
 		</dependency>
 
-		<!--支持jsp-->
+		<!--&lt;!&ndash;支持jsp&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.tomcat.embed</groupId>-->
+			<!--<artifactId>tomcat-embed-jasper</artifactId>-->
+            <!--<scope>provided</scope>-->
+		<!--</dependency>-->
+        <!--&lt;!&ndash;引入servlet-jstl依赖&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>javax.servlet</groupId>-->
+			<!--<artifactId>jstl</artifactId>-->
+		<!--</dependency>-->
+
+        <!--整合freemarker-->
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
-		</dependency>
-        <!--引入servlet-jstl依赖-->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 	</dependencies>
 

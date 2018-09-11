@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * @author lvyimeng
@@ -39,6 +40,18 @@ public class IndexController {
     public String helloJSP(HttpServletRequest request) {
         System.out.println("跳转JSP界面" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         request.setAttribute("search","Spring Boot （Web 篇）：支持JSP");
-        return "indexJSP";
+        return "index";
+    }
+
+    /**
+     *  跳转到FreeMarker页面
+     *
+     * @return
+     */
+    @RequestMapping("helloFreeMarker")
+    public String helloFreeMarker(Map<String,Object> map){
+        System.out.println("跳转到FreeMarker页面" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        map.put("search","Spring Boot （Web 篇）：支持JSP");
+        return "index";
     }
 }
