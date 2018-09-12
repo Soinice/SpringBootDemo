@@ -31,7 +31,7 @@ public class IndexController {
     }
 
     /**
-     *  跳转JSP界面
+     * 跳转JSP界面
      *
      * @param request
      * @return
@@ -39,19 +39,31 @@ public class IndexController {
     @RequestMapping("/helloJSP")
     public String helloJSP(HttpServletRequest request) {
         System.out.println("跳转JSP界面" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        request.setAttribute("search","Spring Boot （Web 篇）：支持JSP");
+        request.setAttribute("search", "Spring Boot （Web 篇）：支持JSP");
         return "index";
     }
 
     /**
-     *  跳转到FreeMarker页面
+     * 跳转到FreeMarker页面
      *
      * @return
      */
     @RequestMapping("helloFreeMarker")
-    public String helloFreeMarker(Map<String,Object> map){
+    public String helloFreeMarker(Map<String, Object> map) {
         System.out.println("跳转到FreeMarker页面" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        map.put("search","Spring Boot （Web 篇）：支持JSP");
+        map.put("search", "Spring Boot （Web 篇）：整合FreeMarker模板");
         return "index";
+    }
+
+    /**
+     * 跳转到Thymeleaf页面
+     *
+     * @return
+     */
+    @RequestMapping("helloThymeleaf")
+    public String helloThymeleaf(Map<String, Object> map) {
+        System.out.println("跳转到Thymeleaf页面" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        map.put("search", "Spring Boot （Web 篇）：整合Thymeleaf模板");
+        return "thymeleaf/indexThymeleaf";
     }
 }
