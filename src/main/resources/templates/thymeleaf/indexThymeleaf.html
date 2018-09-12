@@ -68,7 +68,7 @@
     <div class="row">
         <form class="column" style="width:640px;" method="GET" action="https://www.baidu.com/s" name="search">
             <div class="ui fluid  input action">
-                <input type="text" name="wd" th:text="${search}">
+                <input type="text" name="wd" th:placeholder="${search}">
                 <button class="medium ui blue button" onclick="document.forms['search'].submit();">百度一下</button>
             </div>
         </form>
