@@ -1,6 +1,9 @@
 package com.example.demo.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * @author lvyimeng
@@ -13,7 +16,8 @@ import lombok.Data;
 public class Customer {
     private String id;
     private String userName;
-    private java.sql.Timestamp registerTime;
+//    @JSONField(format = "yyyy-MM-dd")
+    private Date registerTime;
     private String email;
     private String cellphone;
 }

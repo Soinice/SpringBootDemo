@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -65,5 +67,22 @@ public class IndexController {
         System.out.println("跳转到Thymeleaf页面" + ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         map.put("search", "Spring Boot （Web 篇）：整合Thymeleaf模板");
         return "thymeleaf/indexThymeleaf";
+    }
+
+    /**
+     * 返回FastJson
+     *
+     * @return
+     */
+    @RequestMapping("helloFastJson")
+    @ResponseBody
+    public Customer helloFastJson() {
+        Customer customer = new Customer();
+        customer.setId("0");
+        customer.setCellphone("18800008888");
+        customer.setEmail("666@163.com");
+        customer.setUserName("测试FastJson");
+        customer.setRegisterTime(new Date());
+        return customer;
     }
 }

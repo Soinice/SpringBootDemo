@@ -21,15 +21,21 @@ import java.util.List;
 public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
+        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
         //自定义配置...
-        FastJsonConfig config = new FastJsonConfig();
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
         //config.set ...
-        config.setSerializerFeatures(SerializerFeature.PrettyFormat);
-        config.setCharset(Charset.forName("UTF-8"));
-        config.setDateFormat("yyyy-MM-dd HH:mm:ss");
-        converter.setFastJsonConfig(config);
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+        //处理中文乱码问题 设置编码 默认编码为：UTF-8
+        fastJsonConfig.setCharset(Charset.forName("UTF-8"));
+        //处理中文乱码问题 (第二种)
+//        List<MediaType> fastMediaTypes = new ArrayList<>();
+//        fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+//        fastConverter.setSupportedMediaTypes(fastMediaTypes);
+        //设置返回时间格式
+        fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
+        fastConverter.setFastJsonConfig(fastJsonConfig);
         //配置FastJson到Spring boot中
-        converters.add(0, converter);
+        converters.add(0, fastConverter);
     }
 }
