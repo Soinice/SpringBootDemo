@@ -79,6 +79,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
+		<!--集成fastJson-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+            <version>LATEST</version>
+		</dependency>
 	</dependencies>
 
 	<build>
