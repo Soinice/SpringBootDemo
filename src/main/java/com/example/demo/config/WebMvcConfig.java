@@ -3,7 +3,9 @@ package com.example.demo.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.example.demo.filter.FilterDemo;
 import com.example.demo.servlet.ServletDemo;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +36,26 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public ServletRegistrationBean servletRegistrationBean() {
         return new ServletRegistrationBean(new ServletDemo(), "/servletDemo");
     }
+
+    /**
+     * filterBean注册
+     *      第一种注册方式（通过FilterRegistrationBean）
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean filterDemo() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+
+        FilterDemo filterDemo = new FilterDemo();
+        registrationBean.setFilter(filterDemo);
+
+        List<String> urls = new ArrayList<>();
+        urls.add("/*");
+        registrationBean.setUrlPatterns(urls);
+
+        return registrationBean;
+    }
+
 
     /**
      * 配置消息相关
