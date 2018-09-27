@@ -4,8 +4,10 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.example.demo.filter.FilterDemo;
+import com.example.demo.listener.ListenerDemo;
 import com.example.demo.servlet.ServletDemo;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +30,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
      * servletBean注册
-     *      第一种注册方式（通过ServletRegistrationBean）
+     * 第一种注册方式（通过ServletRegistrationBean）
      *
      * @return
      */
@@ -39,7 +41,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
      * filterBean注册
-     *      第一种注册方式（通过FilterRegistrationBean）
+     * 第一种注册方式（通过FilterRegistrationBean）
+     *
      * @return
      */
     @Bean
@@ -56,6 +59,16 @@ public class WebMvcConfig implements WebMvcConfigurer {
         return registrationBean;
     }
 
+    /**
+     * listenerBean注册
+     * 第一种注册方式（通过ServletListenerRegistrationBean）
+     *
+     * @return
+     */
+    @Bean
+    public ServletListenerRegistrationBean<ListenerDemo> servletListenerRegistrationBean() {
+        return new ServletListenerRegistrationBean<ListenerDemo>(new ListenerDemo());
+    }
 
     /**
      * 配置消息相关
