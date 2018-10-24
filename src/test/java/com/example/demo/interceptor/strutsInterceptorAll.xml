@@ -1,0 +1,23 @@
+<struts>
+    <package name="root" namespace="/" extends="struts-default">
+
+        <!-- 配置拦截器 -->
+        <interceptors>
+            <!-- 关联自己写的拦截器 -->
+            <interceptor name="myInterceptor" class="com.interceptor.InterceptorDemo"></interceptor>
+            <!--  把自己的拦截器加载到拦截器栈中-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="myInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 为当前包所有Action配置默认拦截器 -->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+        <!--全局结果集-->
+        <global-results>
+            <result name="fail">/login.jsp</result>
+        </global-results>
+    </package>
+</struts>
+
+

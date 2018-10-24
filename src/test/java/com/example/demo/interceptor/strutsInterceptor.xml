@@ -1,0 +1,23 @@
+<struts>
+    <package name="root" namespace="/" extends="struts-default">
+
+        <!-- 配置拦截器 -->
+        <interceptors>
+            <interceptor name="interceptor1" class="com.interceptor.InterceptorDemoTwo"></interceptor>
+        </interceptors>
+        <action name="log*" class="com.action.LogAction" method="log{1}">
+            <result >/log{1}.jsp</result>
+            <allowed-methods>login,logout</allowed-methods>
+        </action>
+        <action name="add" class="com.action.UserAction">
+            <result>/addUser.jsp</result>
+            <result name="fail">/login.jsp</result>
+
+            <!-- 注意：在使用自定义的拦截器后，默认拦截器是不生效的，需要添加上默认拦截器 -->
+            <interceptor-ref name="interceptor1"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+        </action>
+    </package>
+</struts>
+
+
