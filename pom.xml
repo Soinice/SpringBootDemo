@@ -94,6 +94,12 @@
             <version>2.3.16.3</version>
             <scope>test</scope>
         </dependency>
+
+		<!--配置AOP切面-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
     </dependencies>
 
 	<build>
